@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global News Hub - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="auth.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f4f4f4, #3498db);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        animation: gradientAnimation 15s ease infinite;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Login to your account</h1>
+        <form action="login.php" method="POST">
+          <div class="input-group">
+            <label for="username-email">Username/Email</label>
+            <input type="text" id="username-email" name="username_email" required aria-label="Username or Email"/>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required aria-label="Password"/>
+          </div>
+            <button type="submit" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; transition: background-color 0.3s ease;">Login</button>
+        </form>
+        <p>Don't have an account? <strong><a href="register.html">Register</a></strong></p>
+      </div>
+      <div class="image-container">
+        <img src="Mobile login-rafiki.svg" alt="News Background" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Global News Hub</title>
+    <link rel="stylesheet" href="auth.css" />
+    <style>
+        .preferences-section {
+            text-align: center;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .checkbox-item {
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Create an account</h1>
+            <form id="register-form" action="registration.php" method="POST" >
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="age" name="age" required placeholder="Age">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="username" name="username" required placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+
+                <div class="preferences-section">
+                    <h3>Select your news preferences:</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="general" name="preferences[]" value="general">
+                            <label for="general">General</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="business" name="preferences[]" value="business">
+                            <label for="business">Business</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="technology" name="preferences[]" value="technology">
+                            <label for="technology">Technology</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sports" name="preferences[]" value="sports">
+                            <label for="sports">Sports</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="entertainment" name="preferences[]" value="entertainment">
+                            <label for="entertainment">Entertainment</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="submit" style="background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Create Account</button>
+                <p>Already have an account? <strong><a href="login.html">Login</a></strong></p>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="Sign up-rafiki.svg" alt="News Background">
+        </div>
+    </div>
+
+    <script>
+
+function validateForm() {
+    const name = document.getElementById('name').value;
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const namePattern = /^[A-Za-z\s]+$/;
+    const usernamePattern = /^[a-zA-Z0-9._]{3,15}$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passwordPattern = /^.{6,}$/;
+
+    if (!namePattern.test(name)) {
+        alert('Please enter a valid name(no numbers or special characters).');
+        return false;
+    }
+
+    const age = document.getElementById('age').value;
+    if (age <= 0) {
+        alert('Please enter a valid age.');
+        return false;
+    }
+
+    if (!usernamePattern.test(username)) {
+        alert('Please enter a valid Username.\n3-15 characters\nNo special characters\nCan include underscores or dots.');
+        return false;
+    }
+
+    function validateemail() {
+        var x = document.getElementById('email').value;
+        var atposition = x.indexOf("@");
+        var dotposition = x.lastIndexOf(".");
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
+            alert("Please enter a valid e-mail address");
+            return false;
+        }
+        return true;
+    }
+
+    if (!validateemail()) {
+        return false;
+    }
+
+    if (!passwordPattern.test(password)) {
+        alert('Password should be at least 6 characters long.');
+        return false;
+    }
+
+    const preferences = document.querySelectorAll('input[name="preferences[]"]:checked');
+    if (preferences.length < 2) {
+        alert('Please select at least 2 news preferences.');
+        return false;
+    }
+
+    return true;
+}
+
+const registerForm = document.getElementById('register-form');
+if (registerForm) {
+    registerForm.addEventListener('submit', (e) => {
+        if (!validateForm()) {
+            e.preventDefault(); 
+        }
+    });
+}
+
+    </script>
+</body>
+</html>

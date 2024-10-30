@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f4f4f4, #3498db);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        animation: gradientAnimation 15s ease infinite;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        overflow: hidden;
+        width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      .settings-option {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .settings-option button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+      }
+
+      .edit-profile, .edit-preferences, .feedbackform {
+        background-color: #2980b9;
+        color: white;
+      }
+
+      .delete-button {
+    display: block;
+    width: 160px;  
+    padding: 10px;
+    margin: 20px auto;  
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;  
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Settings</h1>
+      <div class="settings-option">
+        <button class="edit-profile" onclick="window.location.href='edit.html'">Edit Profile</button>
+      </div>
+
+      <div class="settings-option">
+        <button class="edit-preferences" onclick="window.location.href='edit_preference.html'">Edit Preferences</button>
+      </div>
+
+      <div class="settings-option">
+        <button class="feedbackform" onclick="window.location.href='feedback.html'">Feedback</button>
+      </div>
+
+      <div class="settings-option">
+        <button onclick="if(confirm('Are you sure you want to delete your account? This cannot be undone.')) window.location.href='delete_account.php'" class="delete-button">Delete Account</button>
+        <a href="newindex.html" class="back-button" style="display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; font-size: 16px; margin-top: 40px">Back to Home</a>
+      </div>
+    </div>
+  </body>
+</html>

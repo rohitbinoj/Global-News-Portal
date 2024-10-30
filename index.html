@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global News Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --background-light: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 7rem auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .welcome-container {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .welcome-container h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .welcome-container p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .auth-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .auth-btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .features {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .features h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .features ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .features li {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--background-light);
+            border-radius: 8px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .features li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .welcome-container h1 {
+                font-size: 2rem;
+            }
+
+            .features ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .categories {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.categories h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.category-card {
+    background: var(--background-light);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.category-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.category-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .category-card {
+        padding: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.3rem;
+    }
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="developer-info.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-container">
+            <h1>Welcome to Global News Portal</h1>
+            <p>Your one-stop destination for global news across various categories including Sports, Technology, Entertainment, and World News.</p>
+            <div class="auth-buttons">
+                <a href="login.html" class="auth-btn">Login</a>
+                <a href="register.html" class="auth-btn">Register</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>Real-Time Updates</li>
+                <li>Personalized news feed</li>
+                <li>Responsive Design</li>
+                <li>Categorized News</li>
+            </ul>
+        </section>
+
+        <section class="categories">
+            <h2>News Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="general">
+                    <div class="category-icon">📰</div>
+                    <h3 class="category-title">General News</h3>
+                    <p class="category-description">
+                        Stay informed with the latest headlines and breaking news from around the world.
+                    </p>
+                </div>
+  
+                <div class="category-card" data-category="business">
+                    <div class="category-icon">💼</div>
+                    <h3 class="category-title">Business</h3>
+                    <p class="category-description">
+                        Track market trends, company updates, and economic developments globally.
+                    </p>
+                </div>
+  
+                <div class="category-card" data-category="technology">
+                    <div class="category-icon">💻</div>
+                    <h3 class="category-title">Technology</h3>
+                    <p class="category-description">
+                        Explore the latest innovations, gadget releases, and tech industry updates.
+                    </p>
+                </div>
+  
+                <div class="category-card" data-category="sports">
+                    <div class="category-icon">⚽</div>
+                    <h3 class="category-title">Sports</h3>
+                    <p class="category-description">
+                        Get updates on matches, tournaments, and athlete achievements across all sports.
+                    </p>
+                </div>
+  
+                <div class="category-card" data-category="entertainment">
+                    <div class="category-icon">🎬</div>
+                    <h3 class="category-title">Entertainment</h3>
+                    <p class="category-description">
+                        Keep up with celebrity news, movie releases, and entertainment industry updates.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Global News Portal</p>
+        <p><a href="developer-info.html">Developer Info</a></p>
+    </footer>
+</body>
+</html>

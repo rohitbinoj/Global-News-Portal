@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Global News Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f4f4, #3498db);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: gradientAnimation 15s ease infinite;
+            margin: 0;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .feedback-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feedback-header {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .feedback-message {
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .rating-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-direction: row-reverse; 
+        }
+
+        .star-rating {
+            display: none;
+        }
+
+        .star-label {
+            font-size: 24px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .star-label:hover,
+        .star-label:hover ~ .star-label {
+            color: #ffd700;
+        }
+
+        .star-rating:checked ~ .star-label {
+            color: #ffd700;
+        }
+
+        .comment-area {
+            width: calc(100% - 25px); 
+            min-height: 120px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            background-color: #2980b9;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <div class="feedback-header">
+            <h2>Your Feedback Matters!</h2>
+        </div>
+        <p class="feedback-message">
+            Help us improve Global News Hub! Your feedback is valuable to us and will help us provide a better news experience for everyone.
+        </p>
+        
+        <form action="submit_feedback.php" method="POST">
+            <div class="rating-container">
+                <input type="radio" id="star5" name="rating" value="5" class="star-rating" required>
+                <label for="star5" class="star-label">★</label>
+                <input type="radio" id="star4" name="rating" value="4" class="star-rating">
+                <label for="star4" class="star-label">★</label>
+                <input type="radio" id="star3" name="rating" value="3" class="star-rating">
+                <label for="star3" class="star-label">★</label>
+                <input type="radio" id="star2" name="rating" value="2" class="star-rating">
+                <label for="star2" class="star-label">★</label>
+                <input type="radio" id="star1" name="rating" value="1" class="star-rating">
+                <label for="star1" class="star-label">★</label>
+            </div>
+
+            <textarea 
+                name="comment" 
+                class="comment-area" 
+                placeholder="Please share your thoughts, suggestions, or any issues you've experienced..."
+                required
+            ></textarea>
+
+            <button type="submit" class="submit-button">Submit Feedback</button>
+        </form>
+
+        <a href="settings.html" class="back-link">Back to Settings</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Categories - Global News Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #287597;
+            --secondary-color: #1f89a1;
+            --background-color: #f0f8ff;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .category-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .category-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>News Categories</h1>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">📰</div>
+                <h2 class="category-title">General News</h2>
+                <p class="category-description">
+                    Stay informed with the latest headlines and breaking news from around the world.
+                </p>
+                <button class="category-btn" data-category="general">Browse General News</button>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">💼</div>
+                <h2 class="category-title">Business</h2>
+                <p class="category-description">
+                    Track market trends, company updates, and economic developments globally.
+                </p>
+                <button class="category-btn" data-category="business">Browse Business News</button>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <h2 class="category-title">Technology</h2>
+                <p class="category-description">
+                    Explore the latest innovations, gadget releases, and tech industry updates.
+                </p>
+                <button class="category-btn" data-category="technology">Browse Tech News</button>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">⚽</div>
+                <h2 class="category-title">Sports</h2>
+                <p class="category-description">
+                    Get updates on matches, tournaments, and athlete achievements across all sports.
+                </p>
+                <button class="category-btn" data-category="sports">Browse Sports News</button>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🎬</div>
+                <h2 class="category-title">Entertainment</h2>
+                <p class="category-description">
+                    Keep up with celebrity news, movie releases, and entertainment industry updates.
+                </p>
+                <button class="category-btn" data-category="entertainment">Browse Entertainment News</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                window.location.href = `index.html?category=${category}`;
+            });
+        });
+    </script>
+</body>
+</html>
