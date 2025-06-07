@@ -1,4 +1,4 @@
-const apiKey = "df08231bb4af4226940698580d38e0fa";
+const apiKey = ""; //add api here from https://newsapi.org
 const newsContainer = document.getElementById("news-container");
 const categoryButtons = document.querySelectorAll(".category-btn");
 const searchButton = document.querySelector(".searchbutton");
